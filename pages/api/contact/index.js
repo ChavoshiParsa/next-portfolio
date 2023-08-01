@@ -26,11 +26,7 @@ export default async (req, res) => {
     let client;
 
     try {
-     
-      client = await MongoClient.connect(
-        // "mongodb+srv://ParsaChavoshi:490118241@cluster0.w7q66oa.mongodb.net/?retryWrites=true&w=majority"
-        "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.2"
-      );
+      client = await MongoClient.connect(process.env.mongodb_string_connection);
     } catch (error) {
       res.status(500).json({ message: "Could not connect to database" });
       return;

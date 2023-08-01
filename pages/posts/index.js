@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/posts-util";
 import Head from "next/head";
 
 export default function AllPostsPage(props) {
-  return ( 
+  return (
     <>
       <Head>
         <title>All Posts</title>
