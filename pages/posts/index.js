@@ -1,15 +1,15 @@
 import AllPosts from "@/components/posts/all-posts";
-import { getFeaturedPosts } from "@/lib/posts-util";
+import { getAllPosts } from "@/lib/posts-util";
 
 export default function AllPostsPage(props) {
   return <AllPosts posts={props.posts} />;
 }
 
 export function getStaticProps() {
-  const featuredPosts = getFeaturedPosts();
+  const allPosts = getAllPosts();
   return {
     props: {
-      posts: featuredPosts,
+      posts: allPosts,
     },
     // revalidate: 3600
   };
