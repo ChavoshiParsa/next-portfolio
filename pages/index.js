@@ -1,5 +1,6 @@
 import FeaturedPosts from "@/components/home-page/featured-posts";
 import Hero from "@/components/home-page/hero";
+import { getFeaturedPosts } from "@/lib/posts-util";
 
 const DUMMY_POSTS = [
   {
@@ -12,11 +13,21 @@ const DUMMY_POSTS = [
   },
 ];
 
-export default function HomePage() {
+export default function HomePage(props) {
   return (
     <>
       <Hero />
-      <FeaturedPosts posts={DUMMY_POSTS} />
+      <FeaturedPosts posts={props.posts} />
     </>
   );
+}
+
+export function getStaticProps() {
+  const featuredPosts = getFeaturedPosts();
+  return {
+    props: {
+      posts: featuredPosts,
+    },
+    // revalidate: 3600
+  };
 }
